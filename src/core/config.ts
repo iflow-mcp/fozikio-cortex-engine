@@ -155,7 +155,7 @@ export interface AgentConfig {
 
 export const DEFAULT_CONFIG: CortexConfig = {
   store: 'sqlite',
-  embed: 'built-in',
+  embed: 'ollama',
   llm: 'ollama',
   namespaces: {
     default: {

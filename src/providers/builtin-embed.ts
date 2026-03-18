@@ -19,7 +19,9 @@ async function getPipeline() {
 
   let createPipeline;
   try {
-    ({ pipeline: createPipeline } = await import('@huggingface/transformers'));
+    // @ts-ignore - Optional dependency
+    const transformers = await import('@huggingface/transformers');
+    ({ pipeline: createPipeline } = transformers);
   } catch {
     throw new Error(
       'Built-in embeddings require @huggingface/transformers. Install it: npm install @huggingface/transformers'
