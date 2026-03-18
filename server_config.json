@@ -1,1 +1,1 @@
-{"serverConfig": "{\"mcpServers\":{\"fozikio-cortex-engine\":{\"command\":\"npx\",\"args\":[\"-y\",\"@iflow-mcp/fozikio-cortex-engine\"],\"env\":{},\"values\":{}}}}"}
+{"serverConfig": "{\"mcpServers\":{\"fozikio-cortex-engine\":{\"command\":\"npx\",\"args\":[\"-y\",\"@iflow-mcp/fozikio-cortex-engine\"],\"env\":{\"CORTEX_QUIET_MODE\":\"true\"},\"values\":{}}}}"}

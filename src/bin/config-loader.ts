@@ -168,6 +168,9 @@ export function loadConfig(cwd: string = process.cwd(), agentName?: string): Cor
     console.error(`[cortex-engine] Agent "${agentName}" requested but no config file found.`);
     process.exit(1);
   }
-  console.error('[cortex-engine] No config file found, using defaults (sqlite + ollama)');
+  // Only print warning if not in quiet mode
+  if (!process.env.CORTEX_QUIET_MODE) {
+    console.error('[cortex-engine] No config file found, using defaults (sqlite + ollama)');
+  }
   return DEFAULT_CONFIG;
 }

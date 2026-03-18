@@ -38,20 +38,15 @@ try {
   config = loadConfig(undefined, agentName);
 } catch (err) {
   const msg = err instanceof Error ? err.message : String(err);
-  // Only show error and exit for REST mode or if it's not a simple missing config in MCP mode
-  if (useRest || !msg.includes('agent.yaml not found')) {
-    if (msg.includes('ENOENT') || msg.includes('not found')) {
-      console.error('');
-      console.error('  \u2717 agent.yaml not found');
-      console.error('    run `fozikio init` first, or use --workspace <path>');
-      console.error('');
-    } else {
-      console.error(`[cortex-engine] ${msg}`);
-    }
-    process.exit(1);
+  if (msg.includes('ENOENT') || msg.includes('not found')) {
+    console.error('');
+    console.error('  \u2717 agent.yaml not found');
+    console.error('    run `fozikio init` first, or use --workspace <path>');
+    console.error('');
+  } else {
+    console.error(`[cortex-engine] ${msg}`);
   }
-  // For MCP mode with missing config, exit gracefully
-  process.exit(0);
+  process.exit(1);
 }
 
 const start = useRest
